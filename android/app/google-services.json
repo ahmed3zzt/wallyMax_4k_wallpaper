@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "397501551685",
+    "project_id": "wallpaper-app-ahmed-ezzt",
+    "storage_bucket": "wallpaper-app-ahmed-ezzt.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:397501551685:android:804ef0b885a3c92b413f2c",
+        "android_client_info": {
+          "package_name": "com.ahmed_ezzt.wallpaper_app_4k"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmA7VaBego5yeOUbHrXCJcXF-I1hzVWgM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
