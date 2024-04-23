@@ -26,7 +26,9 @@ android {
     namespace "com.ahmed_ezzt.wallpaper_app_4k"
     compileSdk flutter.compileSdkVersion
     ndkVersion "25.1.8937393"
-
+    defaultConfig {
+        multiDexEnabled true
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

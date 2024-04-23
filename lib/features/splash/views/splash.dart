@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:wallpaper_app_4k/features/auth/view/auth.dart';
+import 'package:wallpaper_app_4k/core/app_router.dart';
+import 'package:wallpaper_app_4k/core/constant.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -19,7 +20,11 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> _navigateToLogin() async {
     await Future.delayed(const Duration(seconds: 3), () {
-      Get.offAll(() => const AuthPage(), transition: Transition.downToUp);
+      if (authController.firebaseUser.value == null) {
+        Get.offAllNamed(AppRoute.auth);
+      } else {
+        Get.offAllNamed(AppRoute.home);
+      }
     });
   }
 

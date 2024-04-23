@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:wallpaper_app_4k/features/auth/view/sign_in_email.dart';
+import 'package:wallpaper_app_4k/core/app_router.dart';
+import 'package:wallpaper_app_4k/core/constant.dart';
 import 'package:wallpaper_app_4k/features/auth/view/widgets/sign_in_button.dart';
 
 class AuthBody extends StatelessWidget {
@@ -43,6 +44,9 @@ class AuthBody extends StatelessWidget {
                 buttonText: 'Continue with Google',
                 buttonIconUrl: 'assets/images/google.svg',
                 buttonColor: Colors.white,
+                onTap: () {
+                  authController.signInWithGoogle();
+                },
               ),
               SizedBox(
                 height: size.height * 0.03,
@@ -70,10 +74,7 @@ class AuthBody extends StatelessWidget {
                 buttonIconUrl: 'assets/images/gmail.svg',
                 buttonColor: Colors.red.shade800,
                 textWhite: true,
-                onTap: () => Get.to(
-                  () => const SignInWithEmailPage(),
-                  transition: Transition.downToUp,
-                ),
+                onTap: () => Get.toNamed(AppRoute.signIn),
               ),
               const Spacer(),
               SizedBox(

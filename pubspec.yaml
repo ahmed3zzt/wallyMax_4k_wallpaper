@@ -21,12 +21,6 @@ version: 1.0.0+1
 environment:
   sdk: ">=3.3.2 <4.0.0"
 
-# Dependencies specify other packages that your package needs in order to work.
-# To automatically upgrade your package dependencies to the latest versions
-# consider running `flutter pub upgrade --major-versions`. Alternatively,
-# dependencies can be manually updated by changing the version numbers below to
-# the latest version available on pub.dev. To see which dependencies have newer
-# versions available, run `flutter pub outdated`.
 dependencies:
   awesome_dialog: ^2.2.1
   cupertino_icons: ^1.0.6
@@ -38,15 +32,16 @@ dependencies:
     sdk: flutter
   flutter_svg: ^2.0.10+1
   get: ^4.6.6
+  get_storage: null
+  glass: ^2.0.0+1
   google_fonts: ^6.2.1
+  google_sign_in: ^5.1.1
+  unicons: ^2.1.1
 
 dev_dependencies:
   flutter_lints: ^3.0.0
   flutter_test:
     sdk: flutter
-
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
 flutter:
   # The following line ensures that the Material Icons font is
