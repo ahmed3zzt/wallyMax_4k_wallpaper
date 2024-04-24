@@ -23,6 +23,8 @@ environment:
 
 dependencies:
   awesome_dialog: ^2.2.1
+  cached_network_image: ^3.3.1
+  carousel_slider: ^4.2.1
   cupertino_icons: ^1.0.6
   device_preview: ^1.1.0
   dio: ^5.4.3+1
@@ -36,6 +38,7 @@ dependencies:
   glass: ^2.0.0+1
   google_fonts: ^6.2.1
   google_sign_in: ^5.1.1
+  persistent_bottom_nav_bar: ^5.0.2
   unicons: ^2.1.1
 
 dev_dependencies:
