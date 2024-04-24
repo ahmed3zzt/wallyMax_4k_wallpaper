@@ -10,9 +10,9 @@ class HomeController extends GetxController {
   RxInt page = 1.obs;
   RxList<Wallpaper> wallpaperList = <Wallpaper>[].obs;
   RxBool isLoading = false.obs;
-  RxList<CategoryModel> categoryList = <CategoryModel>[].obs;
+  RxList<CategoryModel> categoryHomeList = <CategoryModel>[].obs;
   List<Wallpaper> get getWallpaperList => wallpaperList.value;
-
+  RxList<CategoryModel> categoryPageItemsList = <CategoryModel>[].obs;
   @override
   void onInit() {
     getAllWallpapers();
@@ -33,24 +33,30 @@ class HomeController extends GetxController {
   }
 
   void getAllCategories() {
-    categoryList.value = [
+    categoryHomeList.value = [
       CategoryModel(name: 'Abstract', imageUrl: "assets/images/abstract.png"),
       CategoryModel(name: 'Art', imageUrl: "assets/images/art.png"),
       CategoryModel(name: 'Beach', imageUrl: "assets/images/beach.png"),
-      // CategoryModel(name: 'Bikes', imageUrl: "assets/images/Bikes.png"),
       CategoryModel(name: 'Cars', imageUrl: "assets/images/cars.png"),
-      // CategoryModel(name: 'Food', imageUrl: "assets/images/food.png"),
-      // CategoryModel(name: 'Games', imageUrl: "assets/images/games.png"),
-      // CategoryModel(name: 'Girls', imageUrl: "assets/images/girls.png"),
-      // CategoryModel(
-      //     name: 'Motorbikes', imageUrl: "assets/images/motorbikes.png"),
-      // CategoryModel(name: 'Music', imageUrl: "assets/images/music.png"),
-      // CategoryModel(name: 'Nature', imageUrl: "assets/images/nature.png"),
-      // CategoryModel(name: 'Rain', imageUrl: "assets/images/rain.png"),
-      // CategoryModel(name: 'Sea', imageUrl: "assets/images/sea.png"),
-      // CategoryModel(name: 'Sky', imageUrl: "assets/images/sky.png"),
-      // CategoryModel(name: 'Space', imageUrl: "assets/images/space.png"),
-      // CategoryModel(name: 'Sunset', imageUrl: "assets/images/sunset.png"),
+    ];
+    categoryPageItemsList.value = [
+      CategoryModel(name: 'Abstract', imageUrl: "assets/images/abstract.png"),
+      CategoryModel(name: 'Art', imageUrl: "assets/images/art.png"),
+      CategoryModel(name: 'Beach', imageUrl: "assets/images/beach.png"),
+      CategoryModel(name: 'Bikes', imageUrl: "assets/images/bikes.png"),
+      CategoryModel(name: 'Cars', imageUrl: "assets/images/cars.png"),
+      CategoryModel(name: 'Food', imageUrl: "assets/images/food.png"),
+      CategoryModel(name: 'Games', imageUrl: "assets/images/games.png"),
+      CategoryModel(name: 'Girls', imageUrl: "assets/images/girls.png"),
+      CategoryModel(
+          name: 'Motorbikes', imageUrl: "assets/images/motorbikes.png"),
+      CategoryModel(name: 'Music', imageUrl: "assets/images/music.png"),
+      CategoryModel(name: 'Nature', imageUrl: "assets/images/nature.png"),
+      CategoryModel(name: 'Rain', imageUrl: "assets/images/rain.png"),
+      CategoryModel(name: 'Sea', imageUrl: "assets/images/sea.png"),
+      CategoryModel(name: 'Sky', imageUrl: "assets/images/sky.png"),
+      CategoryModel(name: 'Space', imageUrl: "assets/images/space.png"),
+      CategoryModel(name: 'Sunset', imageUrl: "assets/images/sunset.png"),
     ];
   }
 }

@@ -18,7 +18,7 @@ class ApiServices {
       String page, String query) async {
     try {
       Response response = await dio.get(
-          '?query=%22Wallpaper%22&orientation=portrait&per_page=10&page=$page&client_id=MbMI0C4cFoCsjZSDn6KlTBhe7JgaNN0X1QM61htraOg');
+          '?query=%22Wallpaper%22&orientation=portrait&per_page=30&page=1$page&client_id=MbMI0C4cFoCsjZSDn6KlTBhe7JgaNN0X1QM61htraOg');
       return response.data;
     } on DioException catch (e) {
       debugPrint(e.toString());

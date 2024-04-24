@@ -182,18 +182,17 @@ class HomeScreen extends StatelessWidget {
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
-                          childAspectRatio: 1,
-                          crossAxisSpacing: 16,
-                          mainAxisSpacing: 16,
+                          crossAxisSpacing: 8,
+                          mainAxisSpacing: 8,
                         ),
                         itemBuilder: (context, index) => SizedBox(
-                          height: 400,
+                          height: 500,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(16),
                             child: CachedNetworkImage(
-                              height: 400,
+                              height: 500,
                               imageUrl:
-                                  homeController.wallpaperList[index].urls.full,
+                                  homeController.wallpaperList[index].urls.raw,
                               fit: BoxFit.cover,
                               errorWidget: (context, url, error) => Center(
                                 child: Text(error.toString()),
