@@ -25,8 +25,9 @@ class WallpaperApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Wallpaper App',
       theme: ThemeData(
-          brightness: Brightness.dark,
-          textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme)),
+        brightness: Brightness.dark,
+        textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme),
+      ),
       themeMode: ThemeMode.dark,
       debugShowCheckedModeBanner: false,
       initialRoute: AppRoute.splash,

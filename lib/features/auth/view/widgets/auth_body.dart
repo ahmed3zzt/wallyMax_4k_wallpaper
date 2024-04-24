@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:wallpaper_app_4k/core/app_router.dart';
 import 'package:wallpaper_app_4k/core/constant.dart';
 import 'package:wallpaper_app_4k/features/auth/view/widgets/sign_in_button.dart';
@@ -57,6 +59,18 @@ class AuthBody extends StatelessWidget {
                 buttonIconUrl: 'assets/images/facebook.svg',
                 buttonColor: Colors.blue.shade800,
                 textWhite: true,
+                onTap: () {
+                  QuickAlert.show(
+                    context: context,
+                    type: QuickAlertType.info,
+                    text: 'This feature will be available soon',
+                    title: 'Coming Soon',
+                    backgroundColor: const Color.fromARGB(255, 41, 41, 41),
+                    confirmBtnColor: Colors.deepPurple,
+                    textColor: Colors.white,
+                    titleColor: Colors.white,
+                  );
+                },
               ),
               SizedBox(
                 height: size.height * 0.03,
