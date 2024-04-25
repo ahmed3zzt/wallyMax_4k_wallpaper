@@ -1,14 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:glass/glass.dart';
 import 'package:quickalert/quickalert.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:unicons/unicons.dart';
 import 'package:wallpaper_app_4k/features/home/controller/home_controller.dart';
 import 'package:wallpaper_app_4k/features/home/view/widgets/carouserl_slider.dart';
+import 'package:wallpaper_app_4k/features/home/view/widgets/newest_wallpapers_view.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -124,7 +124,7 @@ class HomeScreen extends StatelessWidget {
                 () => Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: homeController.categoryList.value
+                  children: homeController.categoryHomeList.value
                       .map(
                         (e) => Container(
                           margin: EdgeInsets.only(
@@ -172,38 +172,7 @@ class HomeScreen extends StatelessWidget {
                 height: 16,
               ),
             ),
-            SliverToBoxAdapter(
-              child: Obx(
-                () => homeController.isLoading.value
-                    ? Center(child: CircularProgressIndicator())
-                    : GridView.builder(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 8,
-                          mainAxisSpacing: 8,
-                        ),
-                        itemBuilder: (context, index) => SizedBox(
-                          height: 500,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(16),
-                            child: CachedNetworkImage(
-                              height: 500,
-                              imageUrl:
-                                  homeController.wallpaperList[index].urls.raw,
-                              fit: BoxFit.cover,
-                              errorWidget: (context, url, error) => Center(
-                                child: Text(error.toString()),
-                              ),
-                            ),
-                          ),
-                        ),
-                        itemCount: homeController.wallpaperList.length,
-                      ),
-              ),
-            ),
+            NewestWallpapersList(homeController: homeController),
           ],
         ),
       ),
