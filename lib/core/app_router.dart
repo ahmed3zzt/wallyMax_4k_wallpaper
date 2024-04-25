@@ -1,32 +1,22 @@
-import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:wallpaper_app_4k/features/auth/view/auth.dart';
+import 'package:wallpaper_app_4k/features/auth/view/sign_in_email.dart';
+import 'package:wallpaper_app_4k/features/auth/view/sign_up_with_email.dart';
+import 'package:wallpaper_app_4k/features/home/view/home.dart';
 import 'package:wallpaper_app_4k/features/splash/views/splash.dart';
 
 class AppRoute {
-  static Route<dynamic> onGenerateRoute(RouteSettings settings) {
-    switch (settings.name) {
-      case '/':
-        return GetPageRoute(
-          page: () => const SplashScreen(),
-        );
-      case '/login':
-        return GetPageRoute(
-          page: () => const AuthPage(),
-        );
+  static List<GetPage> getPages = [
+    GetPage(name: home, page: () => const HomePage()),
+    GetPage(name: auth, page: () => const AuthPage()),
+    GetPage(name: signIn, page: () => const SignInWithEmailPage()),
+    GetPage(name: signUp, page: () => const SignUpWithEmail()),
+    GetPage(name: splash, page: () => const SplashScreen()),
+  ];
 
-      default:
-        return _notFoundPage();
-    }
-  }
-
-  static Route<dynamic> _notFoundPage() {
-    return GetPageRoute(
-      page: () => const Scaffold(
-        body: Center(
-          child: Text('Page not found 404'),
-        ),
-      ),
-    );
-  }
+  static const String home = '/home';
+  static const String auth = '/auth';
+  static const String signIn = '/signIn';
+  static const String signUp = '/signUP';
+  static const String splash = '/splash';
 }

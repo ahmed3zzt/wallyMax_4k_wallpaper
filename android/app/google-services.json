@@ -12,7 +12,20 @@
           "package_name": "com.ahmed_ezzt.wallpaper_app_4k"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "397501551685-q2s1tqcgf1js9c9gs3nc10gcsuajqd97.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ahmed_ezzt.wallpaper_app_4k",
+            "certificate_hash": "fde0b4397b11ce9bf5dd071bf05de796f87db596"
+          }
+        },
+        {
+          "client_id": "397501551685-4a30j026l71efo9gdqil16orgqgmk6bp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAmA7VaBego5yeOUbHrXCJcXF-I1hzVWgM"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "397501551685-4a30j026l71efo9gdqil16orgqgmk6bp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "397501551685-icvbl3kf6mtb6g0coegugvf0gl830aqp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ahmedezzt.wallpaperApp4k"
+              }
+            }
+          ]
         }
       }
     }

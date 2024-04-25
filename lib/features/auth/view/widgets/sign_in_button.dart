@@ -30,7 +30,7 @@ class SignInButton extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: <BoxShadow>[
             BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
+              color: const Color.fromARGB(255, 41, 41, 41).withOpacity(0.5),
               blurRadius: 10,
               offset: const Offset(0, 5),
               spreadRadius: 1,

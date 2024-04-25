@@ -1,21 +1,19 @@
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:wallpaper_app_4k/core/app_router.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:wallpaper_app_4k/core/my_bindings.dart';
 import 'firebase_options.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(
-    DevicePreview(
-      enabled: false,
-      builder: (_) => const WallpaperApp(),
-    ),
+    const WallpaperApp(),
   );
 }
 
@@ -27,10 +25,14 @@ class WallpaperApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Wallpaper App',
       theme: ThemeData(
-        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
+        brightness: Brightness.dark,
+        textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme),
       ),
+      themeMode: ThemeMode.dark,
       debugShowCheckedModeBanner: false,
-      onGenerateRoute: AppRoute.onGenerateRoute,
+      initialRoute: AppRoute.splash,
+      getPages: AppRoute.getPages,
+      initialBinding: MyBindings(),
     );
   }
 }

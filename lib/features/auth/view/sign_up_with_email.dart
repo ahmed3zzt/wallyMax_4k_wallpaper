@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:wallpaper_app_4k/core/app_router.dart';
-import 'package:wallpaper_app_4k/features/auth/view/widgets/sign_in_with_email_form.dart';
+import 'package:wallpaper_app_4k/features/auth/view/widgets/sign_up_with_email_form.dart';
 
-class SignInWithEmailPage extends StatelessWidget {
-  const SignInWithEmailPage({super.key});
+class SignUpWithEmail extends StatelessWidget {
+  const SignUpWithEmail({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,9 +47,7 @@ class SignInWithEmailPage extends StatelessWidget {
                 const SizedBox(
                   height: 32,
                 ),
-                SignInWithEmailForm(
-                  size: size,
-                ),
+                const SignUpWithEmailForm(),
                 const Spacer(),
                 SizedBox(
                   width: size.width * 0.8,
