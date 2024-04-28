@@ -108,5 +108,6 @@ class AuthController extends GetxController {
 
   void signOut() async {
     await auth.signOut();
+    Get.offAllNamed(AppRoute.auth);
   }
 }

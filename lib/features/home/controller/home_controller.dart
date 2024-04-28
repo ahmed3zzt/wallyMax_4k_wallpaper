@@ -13,6 +13,8 @@ class HomeController extends GetxController {
   RxList<CategoryModel> categoryHomeList = <CategoryModel>[].obs;
   List<Wallpaper> get getWallpaperList => wallpaperList.value;
   RxList<CategoryModel> categoryPageItemsList = <CategoryModel>[].obs;
+  RxList<Wallpaper> categoryWallpaperList = <Wallpaper>[].obs;
+  RxList<Wallpaper> searchWallpaperList = <Wallpaper>[].obs;
   @override
   void onInit() {
     getAllWallpapers();
@@ -58,5 +60,31 @@ class HomeController extends GetxController {
       CategoryModel(name: 'Space', imageUrl: "assets/images/space.png"),
       CategoryModel(name: 'Sunset', imageUrl: "assets/images/sunset.png"),
     ];
+  }
+
+  Future<void> getSearchWallpapers(String query) async {
+    isLoading.value = true;
+    Map<String, dynamic> data = await ApiServices().getSearchWallpapers(query);
+
+    searchWallpaperList =
+        List<Wallpaper>.from(data['results'].map((x) => Wallpaper.fromJson(x)))
+            .obs;
+    if (searchWallpaperList.isNotEmpty) {
+      isLoading.value = false;
+    }
+  }
+
+  Future<void> getWallpaperByCategory(String category) async {
+    isLoading.value = true;
+    Map<String, dynamic> data =
+        await ApiServices().getCategoryWallpapers(category);
+
+    categoryWallpaperList =
+        List<Wallpaper>.from(data['results'].map((x) => Wallpaper.fromJson(x)))
+            .obs;
+
+    if (categoryWallpaperList.isNotEmpty) {
+      isLoading.value = false;
+    }
   }
 }
