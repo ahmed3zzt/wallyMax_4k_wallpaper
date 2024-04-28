@@ -19,4 +19,5 @@ class AppRoute {
   static const String signIn = '/signIn';
   static const String signUp = '/signUP';
   static const String splash = '/splash';
+  static const String search = '/search';
 }

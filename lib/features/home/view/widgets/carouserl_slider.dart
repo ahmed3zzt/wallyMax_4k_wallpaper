@@ -17,7 +17,7 @@ class MainCarouselSlider extends StatelessWidget {
               height: 250,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16),
-                child: Image.network(
+                child: Image.asset(
                   'assets/images/carousel-1.png',
                   fit: BoxFit.cover,
                 ),
@@ -28,7 +28,7 @@ class MainCarouselSlider extends StatelessWidget {
               height: 250,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16),
-                child: Image.network(
+                child: Image.asset(
                   'assets/images/carousel-2.png',
                   fit: BoxFit.cover,
                 ),
@@ -39,30 +39,8 @@ class MainCarouselSlider extends StatelessWidget {
               height: 250,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16),
-                child: Image.network(
-                  'assets/images/carousel-3.png',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: 250,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.network(
+                child: Image.asset(
                   'assets/images/carousel-4.png',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: 250,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.network(
-                  'assets/images/carousel-5.png',
                   fit: BoxFit.cover,
                 ),
               ),
