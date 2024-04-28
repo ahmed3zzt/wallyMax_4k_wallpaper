@@ -1,12 +1,13 @@
-import 'package:cached_network_image/cached_network_image.dart';
+// ignore_for_file: invalid_use_of_protected_member
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:glass/glass.dart';
 import 'package:quickalert/quickalert.dart';
-import 'package:shimmer/shimmer.dart';
 import 'package:unicons/unicons.dart';
 import 'package:wallpaper_app_4k/features/home/controller/home_controller.dart';
+import 'package:wallpaper_app_4k/features/home/view/single_category.dart';
 import 'package:wallpaper_app_4k/features/home/view/widgets/carouserl_slider.dart';
 import 'package:wallpaper_app_4k/features/home/view/widgets/newest_wallpapers_view.dart';
 
@@ -32,7 +33,7 @@ class HomeScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.82,
+                      width: MediaQuery.of(context).size.width * 0.78,
                       child: CupertinoSearchTextField(
                         placeholder: 'Find wallpaper...',
                         prefixIcon: const Icon(UniconsLine.search),
@@ -62,7 +63,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      width: 10,
+                      width: 5,
                     ),
                     IconButton(
                       icon: const Icon(
@@ -126,26 +127,36 @@ class HomeScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: homeController.categoryHomeList.value
                       .map(
-                        (e) => Container(
-                          margin: EdgeInsets.only(
-                              right: MediaQuery.of(context).size.width * 0.02),
-                          width: MediaQuery.of(context).size.width * 0.21,
-                          height: 100,
-                          child: Center(
-                              child: Text(
-                            e.name,
-                            style: const TextStyle(fontSize: 18),
-                          )),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            image: DecorationImage(
-                              colorFilter: ColorFilter.mode(
-                                Colors.black.withOpacity(0.2),
-                                BlendMode.darken,
+                        (e) => GestureDetector(
+                          onTap: () {
+                            homeController.categoryWallpaperList.clear();
+                            homeController.getWallpaperByCategory(e.name);
+                            Get.to(() => SingleCategory(
+                                categoryModel: e,
+                                homeController: homeController));
+                          },
+                          child: Container(
+                            margin: EdgeInsets.only(
+                                right:
+                                    MediaQuery.of(context).size.width * 0.02),
+                            width: MediaQuery.of(context).size.width * 0.20,
+                            height: 100,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(16),
+                              image: DecorationImage(
+                                colorFilter: ColorFilter.mode(
+                                  Colors.black.withOpacity(0.2),
+                                  BlendMode.darken,
+                                ),
+                                image: AssetImage(e.imageUrl),
+                                fit: BoxFit.cover,
                               ),
-                              image: AssetImage(e.imageUrl),
-                              fit: BoxFit.cover,
                             ),
+                            child: Center(
+                                child: Text(
+                              e.name,
+                              style: const TextStyle(fontSize: 16),
+                            )),
                           ),
                         ),
                       )
