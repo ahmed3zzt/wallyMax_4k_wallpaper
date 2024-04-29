@@ -15,6 +15,7 @@ class HomeController extends GetxController {
   RxList<CategoryModel> categoryPageItemsList = <CategoryModel>[].obs;
   RxList<Wallpaper> categoryWallpaperList = <Wallpaper>[].obs;
   RxList<Wallpaper> searchWallpaperList = <Wallpaper>[].obs;
+  RxBool isSearch = false.obs;
   @override
   void onInit() {
     getAllWallpapers();
@@ -63,14 +64,14 @@ class HomeController extends GetxController {
   }
 
   Future<void> getSearchWallpapers(String query) async {
-    isLoading.value = true;
+    isSearch.value = true;
     Map<String, dynamic> data = await ApiServices().getSearchWallpapers(query);
 
     searchWallpaperList =
         List<Wallpaper>.from(data['results'].map((x) => Wallpaper.fromJson(x)))
             .obs;
     if (searchWallpaperList.isNotEmpty) {
-      isLoading.value = false;
+      isSearch.value = false;
     }
   }
 

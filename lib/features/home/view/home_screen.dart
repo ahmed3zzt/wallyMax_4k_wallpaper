@@ -7,6 +7,7 @@ import 'package:glass/glass.dart';
 import 'package:quickalert/quickalert.dart';
 import 'package:unicons/unicons.dart';
 import 'package:wallpaper_app_4k/features/home/controller/home_controller.dart';
+import 'package:wallpaper_app_4k/features/home/view/search_page.dart';
 import 'package:wallpaper_app_4k/features/home/view/single_category.dart';
 import 'package:wallpaper_app_4k/features/home/view/widgets/carouserl_slider.dart';
 import 'package:wallpaper_app_4k/features/home/view/widgets/newest_wallpapers_view.dart';
@@ -41,6 +42,14 @@ class HomeScreen extends StatelessWidget {
                           CupertinoIcons.xmark,
                           color: Colors.grey,
                         ),
+                        onTap: () {
+                          showCupertinoModalPopup(
+                            context: context,
+                            builder: (context) => SearchScreen(
+                              homeController: homeController,
+                            ),
+                          );
+                        },
                         decoration: BoxDecoration(
                             borderRadius: const BorderRadius.all(
                               Radius.circular(16),

@@ -30,11 +30,12 @@ class ProfileScreen extends StatelessWidget {
                             color: Colors.black38,
                             shape: BoxShape.circle,
                           ),
-                          child: const Center(
-                            child: Icon(
-                              CupertinoIcons.person,
-                              color: Colors.white,
-                              size: 50,
+                          child: Center(
+                            child: Text(
+                              authController.firebaseUser.value!.displayName!
+                                  .toUpperCase()
+                                  .substring(0, 2),
+                              style: const TextStyle(fontSize: 32),
                             ),
                           ),
                         )
@@ -47,7 +48,7 @@ class ProfileScreen extends StatelessWidget {
                             image: DecorationImage(
                               image: NetworkImage(
                                   authController.firebaseUser.value!.photoURL!),
-                              fit: BoxFit.cover,
+                              fit: BoxFit.contain,
                             ),
                           ),
                         ),
