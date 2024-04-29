@@ -5,6 +5,7 @@ import 'package:quickalert/models/quickalert_type.dart';
 import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:unicons/unicons.dart';
 import 'package:wallpaper_app_4k/features/auth/controller/auth_controller.dart';
+import 'package:wallpaper_app_4k/features/home/controller/home_controller.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -12,6 +13,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AuthController authController = AuthController.instance;
+    final HomeController homeController = HomeController.instance;
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -144,7 +146,10 @@ class ProfileScreen extends StatelessWidget {
                           color: Colors.red,
                         ),
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            homeController
+                                .launchUrlFn('https://github.com/ahmed3zzt');
+                          },
                           icon: const Icon(
                             UniconsLine.instagram,
                             size: 40,
@@ -160,7 +165,10 @@ class ProfileScreen extends StatelessWidget {
                           color: Colors.black26,
                         ),
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            homeController
+                                .launchUrlFn('https://github.com/ahmed3zzt');
+                          },
                           icon: const Icon(
                             UniconsLine.github,
                             size: 40,
@@ -176,7 +184,10 @@ class ProfileScreen extends StatelessWidget {
                           color: Colors.blue,
                         ),
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            homeController
+                                .launchUrlFn('https://github.com/ahmed3zzt');
+                          },
                           icon: const Icon(
                             UniconsLine.linkedin,
                             size: 40,

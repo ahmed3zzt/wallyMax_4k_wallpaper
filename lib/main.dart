@@ -14,7 +14,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(
-    DevicePreview(enabled: true, builder: (context) => const WallpaperApp()),
+    DevicePreview(enabled: false, builder: (context) => const WallpaperApp()),
   );
 }
 

@@ -1,14 +1,15 @@
+// ignore_for_file: invalid_use_of_protected_member
+
 import 'dart:ui';
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/route_manager.dart';
 import 'package:glass/glass.dart';
-import 'package:shimmer/shimmer.dart';
 import 'package:unicons/unicons.dart';
 import 'package:wallpaper_app_4k/features/home/controller/home_controller.dart';
+import 'package:wallpaper_app_4k/features/home/view/widgets/image_widget.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key, required this.homeController});
@@ -91,44 +92,10 @@ class SearchScreen extends StatelessWidget {
                       mainAxisSpacing: 8,
                       childAspectRatio: 2 / 4,
                     ),
-                    itemBuilder: (context, index) => SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.6,
-                      width: MediaQuery.of(context).size.width * 0.5,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
-                        child: CachedNetworkImage(
-                          fit: BoxFit.cover,
-                          imageUrl: homeController
-                              .searchWallpaperList.value[index].urls.raw,
-                          placeholder: (context, url) => Center(
-                            child: Shimmer.fromColors(
-                              baseColor: Colors.black38,
-                              highlightColor: Colors.black26,
-                              enabled: true,
-                              child: Container(
-                                width: MediaQuery.of(context).size.width * 0.5,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.6,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(16),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color:
-                                          const Color.fromARGB(255, 41, 41, 41)
-                                              .withOpacity(0.5),
-                                      blurRadius: 10,
-                                      offset: const Offset(0, 5),
-                                      spreadRadius: 1,
-                                    ),
-                                  ],
-                                  color:
-                                      Theme.of(context).scaffoldBackgroundColor,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
+                    itemBuilder: (context, index) => ImageWidget(
+                      homeController: homeController,
+                      wallpaper:
+                          homeController.searchWallpaperList.value[index],
                     ),
                     itemCount: homeController.searchWallpaperList.value.length,
                   ),

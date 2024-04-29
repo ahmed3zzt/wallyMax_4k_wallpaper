@@ -1,6 +1,12 @@
 // ignore_for_file: invalid_use_of_protected_member
 
+import 'dart:math';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
+import 'package:flutter_wallpaper_manager/flutter_wallpaper_manager.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:wallpaper_app_4k/features/home/model/category_model.dart';
 import 'package:wallpaper_app_4k/features/home/model/wallpaper_model.dart';
 import 'package:wallpaper_app_4k/features/home/services/api_services.dart';
@@ -15,6 +21,7 @@ class HomeController extends GetxController {
   RxList<CategoryModel> categoryPageItemsList = <CategoryModel>[].obs;
   RxList<Wallpaper> categoryWallpaperList = <Wallpaper>[].obs;
   RxList<Wallpaper> searchWallpaperList = <Wallpaper>[].obs;
+  RxBool isWallpaperSet = false.obs;
   RxBool isSearch = false.obs;
   @override
   void onInit() {
@@ -86,6 +93,55 @@ class HomeController extends GetxController {
 
     if (categoryWallpaperList.isNotEmpty) {
       isLoading.value = false;
+    }
+  }
+
+  Future<void> setWallpaper(String url) async {
+    try {
+      String imgUrl = url;
+      int location = WallpaperManager.BOTH_SCREEN;
+      var file = await DefaultCacheManager().getSingleFile(imgUrl);
+      isWallpaperSet.value =
+          await WallpaperManager.setWallpaperFromFile(file.path, location);
+
+      debugPrint(isWallpaperSet.toString());
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  Future<void> setWallpaperHome(String url) async {
+    try {
+      String imgUrl = url;
+      int location = WallpaperManager.HOME_SCREEN;
+      var file = await DefaultCacheManager().getSingleFile(imgUrl);
+      isWallpaperSet.value =
+          await WallpaperManager.setWallpaperFromFile(file.path, location);
+
+      debugPrint(isWallpaperSet.toString());
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  Future<void> setWallpaperLock(String url) async {
+    try {
+      String imgUrl = url;
+      int location = WallpaperManager.LOCK_SCREEN;
+      var file = await DefaultCacheManager().getSingleFile(imgUrl);
+      isWallpaperSet.value =
+          await WallpaperManager.setWallpaperFromFile(file.path, location);
+
+      debugPrint(isWallpaperSet.toString());
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  Future<void> launchUrlFn(String url) async {
+    final Uri url0 = Uri.parse(url);
+    if (!await launchUrl(url0)) {
+      throw Exception('Could not launch $url0');
     }
   }
 }

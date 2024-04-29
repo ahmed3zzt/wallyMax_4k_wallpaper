@@ -4,6 +4,7 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:wallpaper_app_4k/features/home/controller/home_controller.dart';
 import 'package:wallpaper_app_4k/features/home/model/category_model.dart';
+import 'package:wallpaper_app_4k/features/home/view/widgets/image_widget.dart';
 
 class SingleCategory extends StatelessWidget {
   const SingleCategory(
@@ -32,42 +33,10 @@ class SingleCategory extends StatelessWidget {
                     mainAxisSpacing: 8,
                     childAspectRatio: 2 / 4,
                   ),
-                  itemBuilder: (context, index) => SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.6,
-                    width: MediaQuery.of(context).size.width * 0.5,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: CachedNetworkImage(
-                        fit: BoxFit.cover,
-                        imageUrl: homeController
-                            .categoryWallpaperList.value[index].urls.raw,
-                        placeholder: (context, url) => Center(
-                          child: Shimmer.fromColors(
-                            baseColor: Colors.black38,
-                            highlightColor: Colors.black26,
-                            enabled: true,
-                            child: Container(
-                              width: MediaQuery.of(context).size.width * 0.5,
-                              height: MediaQuery.of(context).size.height * 0.6,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(16),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: const Color.fromARGB(255, 41, 41, 41)
-                                        .withOpacity(0.5),
-                                    blurRadius: 10,
-                                    offset: const Offset(0, 5),
-                                    spreadRadius: 1,
-                                  ),
-                                ],
-                                color:
-                                    Theme.of(context).scaffoldBackgroundColor,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                  itemBuilder: (context, index) => ImageWidget(
+                    homeController: homeController,
+                    wallpaper:
+                        homeController.categoryWallpaperList.value[index],
                   ),
                   itemCount: homeController.categoryWallpaperList.value.length,
                 ),

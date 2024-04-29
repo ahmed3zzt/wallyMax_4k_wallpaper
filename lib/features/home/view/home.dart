@@ -119,7 +119,7 @@ class FavoritesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Favorites Screen'),
+      child: Text('Favorites Screen \n Coming Soon We Build It In This Moment'),
     );
   }
 }
