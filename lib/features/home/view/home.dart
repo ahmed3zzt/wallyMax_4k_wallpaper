@@ -1,9 +1,12 @@
+// ignore_for_file: library_private_types_in_public_api, prefer_final_fields
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:unicons/unicons.dart';
 import 'package:wallpaper_app_4k/features/home/view/category_page.dart';
 import 'package:wallpaper_app_4k/features/home/view/home_screen.dart';
+import 'package:wallpaper_app_4k/features/home/view/profile_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -110,26 +113,13 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-
-
 class FavoritesScreen extends StatelessWidget {
   const FavoritesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Favorites Screen'),
-    );
-  }
-}
-
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Profile Screen'),
+      child: Text('Favorites Screen \n Coming Soon We Build It In This Moment'),
     );
   }
 }

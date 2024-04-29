@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:wallpaper_app_4k/core/app_router.dart';
@@ -13,7 +14,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(
-    const WallpaperApp(),
+    DevicePreview(enabled: false, builder: (context) => const WallpaperApp()),
   );
 }
 

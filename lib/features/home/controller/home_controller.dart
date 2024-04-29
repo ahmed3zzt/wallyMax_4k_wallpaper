@@ -1,6 +1,12 @@
 // ignore_for_file: invalid_use_of_protected_member
 
+import 'dart:math';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
+import 'package:flutter_wallpaper_manager/flutter_wallpaper_manager.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:wallpaper_app_4k/features/home/model/category_model.dart';
 import 'package:wallpaper_app_4k/features/home/model/wallpaper_model.dart';
 import 'package:wallpaper_app_4k/features/home/services/api_services.dart';
@@ -13,6 +19,10 @@ class HomeController extends GetxController {
   RxList<CategoryModel> categoryHomeList = <CategoryModel>[].obs;
   List<Wallpaper> get getWallpaperList => wallpaperList.value;
   RxList<CategoryModel> categoryPageItemsList = <CategoryModel>[].obs;
+  RxList<Wallpaper> categoryWallpaperList = <Wallpaper>[].obs;
+  RxList<Wallpaper> searchWallpaperList = <Wallpaper>[].obs;
+  RxBool isWallpaperSet = false.obs;
+  RxBool isSearch = false.obs;
   @override
   void onInit() {
     getAllWallpapers();
@@ -58,5 +68,80 @@ class HomeController extends GetxController {
       CategoryModel(name: 'Space', imageUrl: "assets/images/space.png"),
       CategoryModel(name: 'Sunset', imageUrl: "assets/images/sunset.png"),
     ];
+  }
+
+  Future<void> getSearchWallpapers(String query) async {
+    isSearch.value = true;
+    Map<String, dynamic> data = await ApiServices().getSearchWallpapers(query);
+
+    searchWallpaperList =
+        List<Wallpaper>.from(data['results'].map((x) => Wallpaper.fromJson(x)))
+            .obs;
+    if (searchWallpaperList.isNotEmpty) {
+      isSearch.value = false;
+    }
+  }
+
+  Future<void> getWallpaperByCategory(String category) async {
+    isLoading.value = true;
+    Map<String, dynamic> data =
+        await ApiServices().getCategoryWallpapers(category);
+
+    categoryWallpaperList =
+        List<Wallpaper>.from(data['results'].map((x) => Wallpaper.fromJson(x)))
+            .obs;
+
+    if (categoryWallpaperList.isNotEmpty) {
+      isLoading.value = false;
+    }
+  }
+
+  Future<void> setWallpaper(String url) async {
+    try {
+      String imgUrl = url;
+      int location = WallpaperManager.BOTH_SCREEN;
+      var file = await DefaultCacheManager().getSingleFile(imgUrl);
+      isWallpaperSet.value =
+          await WallpaperManager.setWallpaperFromFile(file.path, location);
+
+      debugPrint(isWallpaperSet.toString());
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  Future<void> setWallpaperHome(String url) async {
+    try {
+      String imgUrl = url;
+      int location = WallpaperManager.HOME_SCREEN;
+      var file = await DefaultCacheManager().getSingleFile(imgUrl);
+      isWallpaperSet.value =
+          await WallpaperManager.setWallpaperFromFile(file.path, location);
+
+      debugPrint(isWallpaperSet.toString());
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  Future<void> setWallpaperLock(String url) async {
+    try {
+      String imgUrl = url;
+      int location = WallpaperManager.LOCK_SCREEN;
+      var file = await DefaultCacheManager().getSingleFile(imgUrl);
+      isWallpaperSet.value =
+          await WallpaperManager.setWallpaperFromFile(file.path, location);
+
+      debugPrint(isWallpaperSet.toString());
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  Future<void> launchUrlFn(String url) async {
+    final Uri url0 = Uri.parse(url);
+    if (!await launchUrl(url0)) {
+      throw Exception('Could not launch $url0');
+    }
   }
 }
