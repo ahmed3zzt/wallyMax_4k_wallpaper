@@ -1,7 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:shimmer/shimmer.dart';
 import 'package:wallpaper_app_4k/features/home/controller/home_controller.dart';
 import 'package:wallpaper_app_4k/features/home/model/category_model.dart';
 import 'package:wallpaper_app_4k/features/home/view/widgets/image_widget.dart';

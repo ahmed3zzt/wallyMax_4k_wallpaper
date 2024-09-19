@@ -50,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           Text(
             'WallyMax - 4k Wallpapers',
-            style: context.textTheme.headlineSmall,
+            style: Theme.of(context).textTheme.headlineSmall,
           ),
           const SizedBox(
             height: 32,

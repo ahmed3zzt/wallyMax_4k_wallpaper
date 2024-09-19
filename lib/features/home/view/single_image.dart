@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-import 'package:social_share/social_share.dart';
 import 'package:unicons/unicons.dart';
 import 'package:wallpaper_app_4k/features/home/model/wallpaper_model.dart';
 import 'package:wallpaper_app_4k/features/home/view/widgets/bottom_modal_sheet_body.dart';

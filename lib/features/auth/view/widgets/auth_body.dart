@@ -36,7 +36,7 @@ class AuthBody extends StatelessWidget {
               ),
               Text(
                 'WallyMax Wallpaper App',
-                style: context.textTheme.bodyLarge,
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
               const SizedBox(
                 height: 32,
@@ -77,7 +77,7 @@ class AuthBody extends StatelessWidget {
               ),
               Text(
                 'or continue with ',
-                style: context.textTheme.bodyLarge,
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
               SizedBox(
                 height: size.height * 0.03,
