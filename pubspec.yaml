@@ -25,7 +25,7 @@ dependencies:
   cached_network_image: ^3.3.1
   carousel_slider: ^4.2.1
   cupertino_icons: ^1.0.6
-  device_preview: ^1.1.0
+  persistent_bottom_nav_bar: ^6.2.1
   dio: ^5.4.3+1
   firebase_auth: ^4.19.2
   firebase_core: ^2.30.0
@@ -39,7 +39,6 @@ dependencies:
   google_fonts: ^6.2.1
   google_sign_in: ^5.1.1
   modal_bottom_sheet: ^3.0.0
-  persistent_bottom_nav_bar: ^5.0.2
   quickalert: ^1.1.0
   shimmer: ^3.0.0
   social_share: ^2.3.1

@@ -2,7 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:unicons/unicons.dart';
 import 'package:wallpaper_app_4k/features/home/view/category_page.dart';
 import 'package:wallpaper_app_4k/features/home/view/home_screen.dart';
@@ -82,12 +82,11 @@ class _HomePageState extends State<HomePage> {
                 const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
           ),
         ],
-        confineInSafeArea: true,
+        confineToSafeArea: true,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         handleAndroidBackButtonPress: true,
         resizeToAvoidBottomInset: true,
         stateManagement: true,
-        hideNavigationBarWhenKeyboardShows: true,
         decoration: NavBarDecoration(boxShadow: <BoxShadow>[
           BoxShadow(
             color: const Color.fromARGB(255, 41, 41, 41).withOpacity(0.5),
@@ -96,20 +95,7 @@ class _HomePageState extends State<HomePage> {
             spreadRadius: 1,
           )
         ]),
-        popAllScreensOnTapOfSelectedTab: true,
-        popActionScreens: PopActionScreensType.all,
-        itemAnimationProperties: const ItemAnimationProperties(
-          duration: Duration(milliseconds: 200),
-          curve: Curves.ease,
-        ),
-        screenTransitionAnimation: const ScreenTransitionAnimation(
-          animateTabTransition: true,
-          curve: Curves.ease,
-          duration: Duration(milliseconds: 200),
-        ),
-        navBarStyle: NavBarStyle.style9, // Choose the desired style
-      ),
-    );
+    ));
   }
 }
 
